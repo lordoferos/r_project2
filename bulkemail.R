@@ -9,7 +9,7 @@ email_rep("tim@apple.com")
 email_rep("alfylev@gmail.com")
 email_rep("reginasmith2424@gmail.com")
 email_rep(c("aggiemaida@gmail.com", 
-    "chevviesq@gmail.com"))
+    "alfylev38@gmail.com"))
 
 ## Multiple IDs
 email_ids <- c("info@jabberbomb.com", 
@@ -30,7 +30,7 @@ clust <- makeCluster(no_cores) #This line will take time
 
 #The parallel version of lapply() is parLapply() and 
 #needs an additional cluster argument.
-parLapply(clust,1:5, function(x) c(x^2,x^3))
+parLapply(clust,1:5, function(x) c(x^2, x^3))
 stopCluster(clust)
 
 library(doParallel)
