@@ -1,14 +1,17 @@
+# Sample Block chain example
 block_example <- list(index = 1,
                       timestamp = "2018-01-05 17.00 MST",
                       data = "some data",
                       previous_hash = 0,
                       proof = 9,
                       new_hash = NULL)
-#load library
+
+#load library digest
 library("digest")
 
 digest("Stata" ,"sha256") # first try
 digest("R", "sha256") # second try
+
 
 #Function that creates a hashed "block"
 hash_block <- function(block){
@@ -18,6 +21,7 @@ hash_block <- function(block){
                              block$previous_hash), "sha256")
   return(block)
 }
+
 
 ### Simple Proof of Work Alogrithm
 proof_of_work <- function(last_proof){
@@ -32,7 +36,7 @@ proof_of_work <- function(last_proof){
   return(proof)
 }
 
-#A function that takes the previous block and normally some data 
+# A function that takes the previous block and normally some data 
 #(in our case the data is a string indicating which block in the 
 #chain it is)
 gen_new_block <- function(previous_block){
@@ -64,7 +68,7 @@ blockchain <- list(block_genesis)
 previous_block <- blockchain[[1]]
 
 # How many blocks should we add to the chain after the genesis block
-num_of_blocks_to_add <- 5000
+num_of_blocks_to_add <- 6000
 
 # Add blocks to the chain
 for (i in 1: num_of_blocks_to_add){
