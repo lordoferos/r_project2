@@ -1,0 +1,35 @@
+---
+title: "parsing_web pages"
+author: "lordoferos"
+date: "8/21/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# Load libraries
+library(Rcrawler)
+library(foreach)
+library(RCurl)
+```
+
+```{r}
+# Scrape the HTML code of DU
+scrape_url <- "https://www.dailyupdates.co.ke"
+flat_html <- readLines(con = scrape_url)
+```
+
+```{r}
+flat_html
+```
+
+# Access web data using R over FTP
+```{r}
+ftp_url <- "ftp://cran.r-project.org/pub/R/web/packagesBayesMixSurv/"
+get_files <- getURL(ftp_url, dirlistonly = TRUE)
+```
+
